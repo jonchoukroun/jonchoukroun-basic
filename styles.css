@@ -113,29 +113,38 @@ aside li {
     }
 }
 
-.sections section {
+section {
     width: 100%;
     margin-block-end: 80px;
 }
 
-.sections section h4 {
+section h4 {
     margin-block-end: 10px;
 }
 
-.sections section p {
+section p {
     margin-block-start: 0;
 }
 
-.sections .warning {
+.warning {
     color: var(--warning-color);
 }
 
-.sections .top-nav {
+.top-nav {
     margin-block-start: 25px;
 }
 
 article {
-    margin-block-end: 100px;
+    margin-block-end: 80px;
+}
+
+article::before {
+    display: block;
+    content: "";
+    margin-block-start: -40px;
+    block-size: 40px;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 article h3 {
