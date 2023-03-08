@@ -2,206 +2,180 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Jon Choukroun | Home</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="hero">
-                <img src="assets/digital-security.png" alt="Webpage logo">
-                <h1 class="header-title">Jon Choukroun</h1>
+    <section id="title">
+        <h1>Jon Choukroun</h1>
+        <p>Software engineer, musician</p>
+        <nav class="site-nav">
+            <a href="#projects" class="button">Projects</a>
+            <a href="#bio" class="button">About Me</a>
+            <a href="#contact" class="button">Get In Touch</a>
+        </nav>
+    </section>
+
+    <section id="future-butcher" class="overlay">
+        <article class="modal">
+            <div class="modal-header">
+                <a href="#projects" class="close button">Close</a>
             </div>
-            <div class="manifesto">
-                <a href="#manifesto">
-                    <small>Why does this site look so... old?</small>
-                </a>
+            <div class="modal-content">
+                <h3>Future Butcher</h3>
+                <p>Do you remember Drug Wars? I spent hours during high school math class playing that game on my TI-83 calculator. I got hooked on the game's simplicity, and how RNG and a somewhat forbidden subject combined to make it infinitely replayable.</p>
+                <p>So in 2017 when I needed a project to learn the Elixir language, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/" target="_blank">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
+
+                <h4>Design</h4>
+                <p>Right off the bat, Future Butcher had a cyberpunk feel. The original name was Slinger, and the player could buy and sell brain implants with different gameplay effects. But the concept was too unfamiliar for players who hadn't read any William Gibson. So instead I took the game in a new direction - cannibalism.</p>
+                <p>I kept the cyberpunk feel, with a UI intended to resemble an old terminal. Some of the events and encounters underscore that feel, with mentions of predatory corporations, weak (and possibly failed) governments, and near anarchy.</p>
+
+                <h4>Architecture</h4>
+                <p>Following the <em>PragProg</em> book's approach, I designed a stateful game engine in Elixir. It handles turns, player statistics, game rules, etc. The engine is a dependency of the server application, built with Phoenix.</p>
+                <p>The application use's Phoenix Channels to communicate with the client, and OTP supervised processes to spin up a state machine when the game starts. Authentication is non-existent, because I wanted to provide an arcade experience.</p>
+                <p>The original (ugly) client was an Emberjs application, but in 2022 I replaced it with React. This client is much cleaner, snappier, and less buggy. Both client versions communicate to the server via Websockets.</p>
+
+                <h4>Links</h4>
+                <ul>
+                    <li>
+                        <a href="https://futurebutcher.com" target="_blank">Play the game</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jonchoukroun/future-butcher-engine" target="_blank">Game engine repo</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jonchoukroun/future-butcher-api" target="_blank">Server application repo</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jonchoukroun/future-butcher-web2" target="_blank">Web client repo (React)</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jonchoukroun/future-butcher-web" target="_blank">Web client repo (old)</a>
+                    </li>
+                </ul>
             </div>
-        </header>
+        </article>
+    </section>
 
-        <div class="content">
-            <aside>
-                <h3>Contents</h3>
-                <nav>
-                    <ul>
-                        <li>
-                            <h4>Projects</h4>
-                            <ul>
-                                <li>
-                                    <a href="#future-butcher">Future Butcher</a>
-                                </li>
-                                <li>
-                                    <a href="#william-storck">William Storck</a>
-                                </li>
-                                <li>
-                                    <a href="#chip-8">Chip-8 Emulator</a>
-                                </li>
-                                <li>
-                                    <a href="#gameboy">GameBoy Emulator</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#bio">Bio</a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-
-            <div class="sections">
-                <section id="projects">
-                    <h1 class="section-title">Projects</h1>
-                    <p>Complete and ongoing side projects I've worked on.</p>
-
-                    <article id="future-butcher">
-                        <h3>Future Butcher</h3>
-                        <em class="warning">Currently unavailable while I sort out a certificate renewal issue.</em>
-                        <p><strong>Turn-based strategy game built with Elixir/Phoenix and Emberjs.</strong></p>
-                        <p>Do you remember Drug Wars? I spent hours during high school math class playing that game on my TI-83 calculator. I got hooked on the game's simplicity, and how RNG and a somewhat forbidden subject combined to make it infinitely replayable.</p>
-                        <p>So in 2017 when I needed a project to learn the Elixir language, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
-
-                        <h4>Design</h4>
-                        <p>Right off the bat, Future Butcher had a cyberpunk feel. The original name was Slinger, and the player could buy and sell brain implants with different gameplay effects. But the concept was hard to grasp for players who hadn't read any Gibson. So instead I took the game in a new direction - cannibalism.</p>
-                        <p>I kept the cyberpunk feel, with a UI intended to resemble an old terminal. Some of the events and encounters underscore that feel, with mentions of all-powerful corporations, weak (and possibly failed) governments, and near anarchy.</p>
-                        <p>After struggling to find an artist I opted for free icons and creative animations to give the game some life. It doesn't look great, but it served my purposes.</p>
-
-                        <h4>Architecture</h4>
-                        <p>Following the <em>PragProg</em> book's approach, I designed a stateful game engine in Elixir. It handles the turns, player statistics, game rules, etc. The engine is a dependency of the server application, built with Phoenix.</p>
-                        <p>The application use's Phoenix Channels to communicate with the client, and OTP supervised processes to spin up a state machine. Authentication is non-existent, because I wanted to provide an arcade experience. Players don't need an account or to enter their email address, just their name for the scoreboard. It turns out that after I stopped marketing the game and traffic died out, a few players dominated the scoreboard. At some point I'll impose a uniqueness constraint on the top-100 high scores.</p>
-                        <p>The client is an Emberjs application. At the time, my work's client side application was built with Ember, so I went with what I knew. The client communicates with the server application via Websockets.</p>
-
-                        <h4>More</h4>
-                        <ul>
-                            <li>
-                                <a href="https://futurebutcher.com">Play the game</a>
-                                <em class="warning">(Currently unavailable)</em>
-                            </li>
-                            <li>
-                                <a href="https://github.com/jonchoukroun/future-butcher-engine">Game engine repo</a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/jonchoukroun/future-butcher-api">Server application repo</a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/jonchoukroun/future-butcher-web">Web client repo</a>
-                            </li>
-                        </ul>
-                        <div class="top-nav">
-                            <a href="#top">Back to top</a>
-                        </div>
-                    </article>
-
-                    <article id="william-storck">
-                        <h3>William Storck | Portfolio</h3>
-                        <p><strong>Minimalistic artist portfolio for the American painter William Storck</strong></p>
-
-                        <h4>Design</h4>
-                        <p>Because the goal of the site is to showcase the painter's art, I wanted a minimal style that wouldn't intefere. Mr. Storck and I worked together on a unique color palette intended to mimic the frames commonly used with his work.</p>
-
-                        <h4>Architecture</h4>
-                        <p>This is a simple Elixir/Phoenix CRUD application. However to allow Mr. Storck to manage his paintings and collections I created a gated Admin site. This was a great opportunity to dive into <a href="https://hexdocs.pm/phoenix/contexts.html">Phoenix Contexts</a>.</p>
-
-                        <p>Visit the portfolio. <a href="https://williamstorck.com">williamstorck.com</a></p>
-                        <div class="top-nav">
-                            <a href="#top">Back to top</a>
-                        </div>
-                    </article>
-
-                    <article id="chip-8">
-                        <h3 id="chip-u">Chip-8 Emulator</h3>
-                        <p><strong>Chip-8 Emulator written in C</strong></p>
-
-                        <p>It was time to learn to program in C, including more low-level fundamentals like memory management. I wasn't familiar with the <a href="https://en.wikipedia.org/wiki/CHIP-8">CHIP-8 programming language</a>, or the VMs that ran it back in the '70s. But a friend suggested building an emulator as a way to learn those fundamentals.</p>
-
-                        <h4>Architecture</h4>
-                        <p><em class="warning">Coming soon</em></p>
-
-                        <h4>More</h4>
-                        <ul>
-                            <li>
-                                <a href="https://github.com/jonchoukroun/chip-8c">Emulator repo</a>
-                            </li>
-                            <li>
-                                <p><em class="warning">Web Assembly port coming soon.</em></p>
-                            </li>
-                        </ul>
-                        <div class="top-nav">
-                            <a href="#top">Back to top</a>
-                        </div>
-                    </article>
-
-                    <article id="gameboy">
-                        <h3 id="gameboy">GameBoy Emulator</h3>
-                        <p><strong>GameBoy Emulator written in C</strong></p>
-
-                        <p>After completing the CHIP-8 emulator I wanted a harder challenge, so the next logical step was to tackle the Gameboy. Unlike the CHIP-8, I was familiar with the Gameoby. I played hours of Donkey Kong long ago.</p>
-
-                        <p><em class="warning">Gameboy emulator still in development.</em></p>
-
-                        <div class="top-nav">
-                            <a href="#top">Back to top</a>
-                        </div>
-                    </article>
-                </section>
-
-                <section id="bio">
-                    <h1 class="section-title">Bio</h1>
-                    <p>I'm a software engineer currently working at Apple. I started programming in 2016 after working in the music industry and taking a boring detour through management consulting.</p>
-                    <p>My programming interests run from functional, distributed applications, to low-level C applications, to cryptography.</p>
-
-                    <h4>Some Publications I Recommend</h4>
-                    <small><em>...in no particular order...</em></small>
-                    <ul>
-                        <li>
-                            <p><a href="https://obscuritory.com/">The Obscuritory</a> - a blog about forgotten games from years past</p>
-                        </li>
-                        <li>
-                            <p><a href="https://madned.substack.com/">The Mad Ned Memo</a> - a blog about hardware and software computing history.</p>
-                        </li>
-                        <li>
-                            <p><a href="https://tae.com/blog/">TAE Technologies</a> - articles from one of the world's fusion leaders, based in Orange County.</p>
-                        </li>
-                    </ul>
-
-                    <h4>More</h4>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/jonchoukroun">GitHub</a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/jonchoukroun/">LinkedIn</a>
-                        </li>
-                    </ul>
-
-                    <div class="top-nav">
-                        <a href="#top">Back to top</a>
-                    </div>
-                </section>
-
-                <section id="manifesto">
-                    <h1 class="section-title">Why does this site look so... old?</h1>
-                    <p>Shouldn't a software engineer have a cooler looking site? For that matter, shouldn't I build a web application instead of just a basic web site?</p>
-                    <p>Maybe, but I prefer to build only what I need. This site is informative about what I've built and who I am. There's no need for Javascript (yet) so why add weight to the page? My goal was to build this quickly, with a minimal file size, that can be viewed on practically any device.*</p>
-                    <p>I also built this site to last. Check out <a href="https://jeffhuang.com/designed_to_last/">this manifesto on preserving web content</a> for more details.</p>
-
-                    <small>* Sorry IE users, some of the CSS probably won't work for you.</small>
-
-                    <h4>More on Improving the Internet</h4>
-                    <p><em class="warning">Coming soon</em></p>
-
-                    <div class="top-nav">
-                        <a href="#top">Back to top</a>
-                    </div>
-                </section>
+    <section id="william-storck" class="overlay">
+        <article class="modal">
+            <div class="modal-header">
+                <a href="#projects" class="close button">Close</a>
             </div>
-        </div>
+            <div class="modal-content">
+                <h3>William Storck Portfolio</h3>
+
+                <h4>Design</h4>
+                <p>Because the goal of the site is to showcase the painter's art, I chose a minimalist style that wouldn't intefere. Mr. Storck and I worked together on a unique color palette intended to mimic the frames commonly used with his work.</p>
+
+                <h4>Architecture</h4>
+                <p>This is a simple Elixir/Phoenix CRUD application. However to allow Mr. Storck to manage his paintings and collections I created a gated admin site. This was a great opportunity to dive into <a href="https://hexdocs.pm/phoenix/contexts.html" target="_blank">Phoenix Contexts</a>.</p>
+
+                <p>Unfortunately the portfolio is now offline.</p>
+            </div>
+        </article>
+    </section>
+
+    <section id="sdsx" class="overlay">
+        <article class="modal">
+            <div class="modal-header">
+                <a href="#projects" class="close button">Close</a>
+            </div>
+            <div class="modal-content">
+                <h3>Synthesized Drum Sequencer - Experimental</h3>
+                <p class="placeholder">Coming soon...</p>
+            </div>
+        </article>
+    </section>
+
+    <section id="chip8c" class="overlay">
+        <article class="modal">
+            <div class="modal-header">
+                <a href="#projects" class="close button">Close</a>
+            </div>
+            <div class="modal-content">
+                <h3>Chip-8c Emulator</h3>
+                <p class="placeholder">Coming soon...</p>
+            </div>
+        </article>
+    </section>
+
+    <section id="projects">
+        <h2 class="container-title">Projects</h2>
+        <nav>
+            <article class="card">
+                <header>
+                    <h3>Future Butcher</h3>
+                </header>
+                <p>Game engine, API, and web client for a turn-based strategy game. Built with Elixir and React.</p>
+                <footer>
+                    <a class="card-button button" href="#future-butcher">Explore</a>
+                </footer>
+            </article>
+            <article class="card">
+                <header>
+                    <h3>SDSx</h3>
+                </header>
+                <p>Synthesized Drum Sequencer, written in C++ with PortAudio and wxWidgets.</p>
+                <footer>
+                    <a class="card-button button" href="#sdsx">Learn More</a>
+                </footer>
+            </article>
+            <article class="card">
+                <header>
+                    <h3>William Storck Portfolio</h3>
+                </header>
+                <p>Portfolio website and admin portal for the contemporary artist William Storck. Built in Elixir/Phoenix.</p>
+                <footer>
+                    <a class="card-button button" href="#william-storck">Dive In</a>
+                </footer>
+            </article>
+            <article class="card">
+                <header>
+                    <h3>Chip-8c</h3>
+                </header>
+                <p>Emultaor for the ancient microprocessor interpreted language, written in C.</p>
+                <footer>
+                    <a class="card-button button" href="#chip8c">See More</a>
+                </footer>
+            </article>
+        </nav>
 
         <footer>
-            <small>&copy; 2021 Jon Choukroun</small>
-            <a href="https://jeffhuang.com/designed_to_last/"><small>This site was built to last.</small></a>
-            <small>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></small>
+            <a href="#">Back to top</a>
         </footer>
-    </div>
+    </section>
+
+    <section id="bio">
+        <h2 class="container-title">About Me</h2>
+        <article class="text-content">
+            <p>Hello, I'm Jon Choukroun - a software engineer, (sort-of) musician, chess enthusiast, and film buff. I currently work at Apple, on the iCloud Mail team, where I focus on the web client. This means I mostly use React with Typescript.</p>
+            <p>I started my career as a sound engineer, recording and mixing albums and concert films. I briefly composed music for tv ads, but soon left the music industry. I don't get much of a chance to play drums or compose anymore, but I occasionally still play guitar.</p>
+            <p>After a boring stint in management consulting, I taught myself to code. I've been a programmer since 2016, building web applications with Ruby, Elixir, Node, and React. But my favorite language to work in is C++. Before Apple I worked for Twenty20, a platform for stock photos. Unfortunately the startup was acquired and later shuttered. Now, in addition to my Mail web client work at Apple, I enjoy messing around on <a href="#projects">various projects</a>.</p>
+            <p></p>
+        </article>
+
+        <footer>
+            <a href="#">Back to top</a>
+        </footer>
+    </section>
+
+    <section id="contact">
+        <h2 class="container-title">Contact Me</h2>
+
+        <footer>
+            <a href="#">Back to top</a>
+        </footer>
+    </section>
+
+    <section id="manifesto">
+        <article class="text-content">
+            <p>This static site is built entirely in HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto on preserving web content</a> for more details.</p>
+        
+            <p>Built by Jon Choukroun</p>
+        </article>
+    </section>
 </body>
 </html>
