@@ -1,13 +1,45 @@
 /* CSS Variables */
 :root {
-    --background-color: #fff8dc;
-    --base-color: black;
-    --display-color: #00c2d1;
-    --heading-color: #f26df9;
-    --alt-background-color: #b1b4be;
-    --alt-text-color: #1c2dc4;
-    --shadow-offset: 0.75vw;
+    /* Colors */
+    --primary-bg-color: #ffffff;
+    --secondary-bg-color: #fff8dc;
+    --tertiary-bg-color: #b1b4be;
+    --primary-color: #000000;
+    --secondary-color: #1c2dc4;
+    --primary-heading-color: #f26df9;
+    --secondary-heading-color: #00c2d1;
+    /* Type */
+    --heading-type: 'Andale Mono', monospace;
+    --body-type: 'American Typewriter', monospace;
+    --body-size: 16px;
+    --heading-size: 42px;
+    --small-heading-size: 20px;
+    --button-font-size: 16px;
+    --card-title-size: 28px;
+    --modal-title-size: 24px;
+    --small-size: 12px;
+    /* Shadows */
+    --primary-box-shadow: 5px 5px var(--primary-color);
+    --primary-text-shadow: 3px 3px var(--primary-color);
+    --secondary-box-shadow: 9px 9px var(--primary-color);
+    --title-shadow: 0.75vw 0.75vw var(--primary-color);
 }
+
+@media (min-width: 1024px) {
+    :root {
+        --body-size: 20px;
+        --heading-size: 50px;
+        --small-heading-size: 28px;
+        --button-font-size: 24px;
+        --card-title-size: 32px;
+        --modal-title-size: 48px;
+        --small-size: 16px;
+        --primary-text-shadow: 5px 5px var(--primary-color);
+    }
+}
+
+
+/* Base Elements */
 
 * {
     box-sizing: border-box;
@@ -16,64 +48,83 @@
 
 body {
     margin: 0;
-    background-color: var(--background-color);
+    background-color: var(--secondary-bg-color);
 }
 
 h1, h2, h3{
-    font-family: 'Andale Mono', monospace;
+    font-family: var(--heading-type);
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--heading-color);
+    color: var(--primary-heading-color);
 }
 
 p {
-    font-family: 'American Typewriter', monospace;
-    font-size: 20px;
-    color: var(--base-color);
+    font-family: var(--body-type);
+    font-size: var(--body-size);
+    color: var(--primary-color);
 }
 
-.button {
+a.button {
     text-align: center;
     text-decoration: none;
-    border: 2px solid var(--base-color);
-    box-shadow: 5px 5px var(--base-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--primary-box-shadow);
 }
 
-.button:hover {
-    box-shadow: 9px 9px var(--base-color);
+a.button:hover {
+    box-shadow: var(--secondary-box-shadow);
     transform: translateX(-2px) translateY(-2px);
     transition: all ease 100ms;
 }
 
-.button:active {
+a.button:active {
     box-shadow: none;
 }
 
 section {
     padding-block: 50px;
     padding-inline: 5vw;
-    background-color: white;
-    border-block-end: 3px solid var(--base-color);
+    background-color: var(--primary-bg-color);
+    border-block-end: 3px solid var(--primary-color);
 }
 
-.container-title {
+section > h2.container-title {
     position: relative;
     margin-block-end: 40px;
-    font-size: 50px;
-    text-shadow: 4px 4px var(--base-color);
+    font-size: var(--heading-size);
+    text-shadow: var(--primary-text-shadow);
 }
 
-.container-title::after {
+section > h2.container-title::after {
     content: '';
     position: absolute;
-    inset-inline-start: -5px;
-    inset-block-start: 20px;
+    inset-inline-start: -3px;
+    inset-block-start: 10px;
     transform: rotateZ(-5deg);
     z-index: -1;
-    inline-size: 250px;
-    block-size: 55px;
+    inline-size: 150px;
+    block-size: 45px;
     margin: auto;
-    background-color: var(--alt-background-color);
+    background-color: var(--tertiary-bg-color);
+}
+
+h2.container-title:last-child {
+    color: red;
+}
+
+@media (min-width: 1024px) {
+    section > h2.container-title::after {
+        inset-inline-start: 25px;
+        inset-block-start: 5px;
+        transform: rotateZ(-5deg);
+        inline-size: 225px;
+        block-size: 55px;
+    }
+
+    .container-title:last-child {
+        /* inline-size: 200px; */
+        color: red;
+    }
 }
 
 section > article {
@@ -86,33 +137,36 @@ footer {
 }
 
 footer > a {
-    font-family: 'American Typewriter', serif;
-    font-size: 20px;
+    font-family: var(--body-type);
+    font-size: var(--body-size);
 }
 
-#title {
-    background-color: var(--background-color);
+
+/* Section-Specific */
+
+#hero {
+    background-color: var(--secondary-bg-color);
     padding-block-start: 120px;
     padding-inline: 0;
     overflow: hidden;
 }
 
-#title > h1 {
+#hero > h1 {
     margin-block-start: 60px;
     margin-block-end: 0;
     text-align: start;
     font-size: 16vw;
     white-space: nowrap;
-    color: var(--display-color);
-    text-shadow: var(--shadow-offset) var(--shadow-offset) var(--base-color);
+    color: var(--secondary-heading-color);
+    text-shadow: var(--title-shadow);
     animation: scrollText 12s linear infinite;
 }
 
-#title > p {
+#hero > p {
     text-align: center;
 }
 
-#title > nav {
+#hero > nav {
     max-inline-size: 800px;
     display: flex;
     align-items: center;
@@ -120,78 +174,20 @@ footer > a {
     margin: auto;
 }
 
-#title > nav > a.button {
+#hero > nav > a.button {
+    inline-size: 100px;
     margin-inline: 10px;
     padding-block: 10px;
-    padding-inline: 25px;
-    background-color: var(--display-color);
-    font-family: 'Andale Mono', monospace;
-    font-size: 24px;
+    background-color: var(--secondary-heading-color);
+    font-family: var(--heading-type);
+    font-size: var(--button-font-size);
     text-transform: uppercase;
 }
 
-#projects > nav {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    grid-gap: 1rem;
-    margin: 100px auto;
-}
-
-article.card {
-    block-size: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-block: 30px;
-    padding-inline: 30px;
-    background-color: var(--alt-text-color);
-    border: 3px solid var(--base-color);
-    box-shadow: 5px 5px var(--base-color);
-}
-
-article.card:nth-child(2n) {
-    background-color: var(--background-color);
-}
-
-article.card h3 {
-    margin-block-end: 40px;
-    font-size: 30px;
-    text-align: center;
-    color: var(--background-color);
-}
-
-article.card:nth-child(2n) h3 {
-    color: var(--alt-text-color);
-}
-
-article.card p {
-    color: var(--background-color);
-}
-
-article.card:nth-child(2n) p {
-    color: var(--alt-text-color);
-}
-
-article.card > footer {
-    display: flex;
-    justify-content: center;
-    margin-block-start: auto;
-    padding-block: 10px;
-}
-
-a.card-button {
-    inline-size: 60%;
-    padding-block: 10px;
-    background-color: var(--heading-color);
-    border-radius: 2px;
-    color: var(--alt-text-color);
-    font-family: 'Andale Mono', monospace;
-    font-size: 20px;
-}
-
-article.card:nth-child(2n) a.card-button {
-    background-color: var(--display-color);
+@media (min-width: 1024px) {
+    #hero > nav > a.button {
+        inline-size: 200px;
+    }
 }
 
 section.overlay {
@@ -200,6 +196,7 @@ section.overlay {
     inset-block-end: 0;
     inset-inline-start: 0;
     inset-inline-end: 0;
+    padding-inline: 8px;
     background-color: rgba(0, 0, 0, 0.8);
     visibility: hidden;
     opacity: 0;
@@ -211,94 +208,179 @@ section.overlay:target {
     opacity: 1;
 }
 
-article.modal {
+section.overlay article.modal {
     max-block-size: 600px;
+    inline-size: 100%;
     z-index: 100;
     display: flex;
     flex-direction: column;
-    margin: 75px auto;
-    background-color: var(--background-color);
-    border: 4px solid var(--base-color);
+    margin: 0 auto;
+    background-color: var(--secondary-bg-color);
+    border: 4px solid var(--primary-color);
     border-radius: 10px;
-    box-shadow: 5px 5px var(--base-color);
+    box-shadow: var(--primary-box-shadow);
 }
 
-article.modal .modal-header {
+@media (min-width: 1024px) {
+    section.overlay article.modal {
+        margin: 75px auto;
+    }
+}
+
+section.overlay article.modal .modal-header {
     display: flex;
     justify-content: flex-end;
     padding-block: 20px;
-    padding-inline: 40px;
-    background-color: var(--alt-text-color);
-    border-bottom: 2px solid var(--base-color);
+    padding-inline: 15px;
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
-article.modal .modal-header .close {
+section.overlay article.modal .modal-header .close {
     padding: 5px;
-    background-color: var(--background-color);
-    color: var(--alt-text-color);
-    font-family: 'Andale Mono', monospace;
-    font-size: 16px;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-color);
+    font-family: var(--heading-type);
+    font-size: var(--small-size);
     font-weight: 600;
     text-transform: uppercase;
 }
 
-article.modal .modal-content {
-    padding: 40px;
+section.overlay article.modal .modal-content {
+    padding: 15px;
     overflow-x: scroll;
 }
 
-article.modal .modal-content h3 {
+@media (min-width: 1024px) {
+    section.overlay article.modal .modal-header {
+        padding-inline: 40px;
+    }
+
+    section.overlay article.modal .modal-content {
+        padding: 40px;
+    }
+}
+
+section.overlay article.modal .modal-content h3 {
     margin-block-start: 0;
-    font-family: 'Andale Mono', monospace;
-    font-size: 48px;
+    color: var(--secondary-color);
+    font-family: var(--heading-type);
+    font-size: var(--modal-title-size);
     font-weight: 400;
     text-align: center;
-    text-shadow: 4px 4px var(--base-color);
-    /* text-transform: none; */
+    text-transform: none;
 }
 
-article.modal .modal-content h4 {
+section.overlay article.modal .modal-content h4 {
     margin-block-start: 60px;
     margin-block-end: 10px;
-    font-size: 24px;
+    font-family: var(--heading-type);
+    font-size: var(--small-heading-size);
 }
 
-article.modal .modal-content ul {
+section.overlay article.modal .modal-content ul {
     padding: 0;
     list-style: none;
 }
 
-article.modal .modal-content li {
+section.overlay article.modal .modal-content li {
     margin-block-end: 10px;
-    font-family: 'American Typewriter', monospace;
-    font-size: 20px;
+    font-family: var(--body-type);
+    font-size: var(--body-size);
 }
 
-article.modal .modal-content p.placeholder {
-    color: var(--alt-text-color);
+section.overlay article.modal .modal-content p.placeholder {
+    color: var(--secondary-color);
     font-style: italic;
     text-align: center;
 
 }
 
+#projects > nav {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-gap: 1rem;
+    margin: 100px auto;
+}
+
+#projects article.card {
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-block: 30px;
+    padding-inline: 30px;
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--primary-box-shadow);
+}
+
+#projects article.card:nth-child(2n) {
+    background-color: var(--secondary-bg-color);
+}
+
+#projects article.card h3 {
+    margin-block-end: 40px;
+    font-size: var(--card-title-size);
+    text-align: center;
+    color: var(--secondary-bg-color);
+}
+
+#projects article.card:nth-child(2n) h3 {
+    color: var(--secondary-color);
+}
+
+#projects article.card p {
+    color: var(--secondary-bg-color);
+}
+
+#projects article.card:nth-child(2n) p {
+    color: var(--secondary-color);
+}
+
+#projects article.card > footer {
+    display: flex;
+    justify-content: center;
+    margin-block-start: auto;
+    padding-block: 10px;
+}
+
+#projects a.card-button {
+    inline-size: 60%;
+    padding-block: 10px;
+    background-color: var(--primary-heading-color);
+    border-radius: 2px;
+    color: var(--secondary-color);
+    font-family: var(--heading-type);
+    font-size: var(--body-size);
+}
+
+#projects article.card:nth-child(2n) a.card-button {
+    background-color: var(--secondary-heading-color);
+}
+
 #bio {
-    background-color: var(--display-color);
-    color: var(--heading-color);
+    background-color: var(--secondary-heading-color);
+    color: var(--primary-heading-color);
 }
 
 #manifesto {
-    background-color: var(--alt-text-color);
+    background-color: var(--secondary-color);
 }
 
 #manifesto p {
     text-align: center;
-    font-size: 16px;
-    color: white;
+    font-size: var(--small-size);
+    color: var(--primary-bg-color);
 }
 
 #manifesto a {
-    color: var(--heading-color);
+    color: var(--primary-heading-color);
 }
+
+
+/* Animations */
 
 @keyframes scrollText {
     0% {
