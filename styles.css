@@ -6,7 +6,8 @@
     --tertiary-bg-color: #b1b4be;
     --primary-color: #000000;
     --secondary-color: #1c2dc4;
-    --primary-heading-color: #f26df9;
+    /* --primary-heading-color: #f26df9; */
+    --primary-heading-color: #9400d3;
     --secondary-heading-color: #00c2d1;
     /* Type */
     --heading-type: 'Andale Mono', monospace;
