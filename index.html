@@ -28,90 +28,6 @@
         </nav>
     </section>
 
-    <section id="future-butcher" class="overlay">
-        <article class="modal">
-            <div class="modal-header">
-                <a href="#projects" class="close button">Close</a>
-            </div>
-            <div class="modal-content">
-                <h3>Future Butcher</h3>
-                <p>Do you remember Drug Wars? I spent hours during high school math class playing that game on my TI-83 calculator. I got hooked on the game's simplicity, and how RNG and a somewhat forbidden subject combined to make it infinitely replayable.</p>
-                <p>So in 2017 when I needed a project to learn the Elixir language, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/" target="_blank">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
-
-                <h4>Design</h4>
-                <p>Right off the bat, Future Butcher had a cyberpunk feel. The original name was Slinger, and the player could buy and sell brain implants with different gameplay effects. But the concept was too unfamiliar for players who hadn't read any William Gibson. So instead I took the game in a new direction - cannibalism.</p>
-                <p>I kept the cyberpunk feel, with a UI intended to resemble an old terminal. Some of the events and encounters underscore that feel, with mentions of predatory corporations, weak (and possibly failed) governments, and near anarchy.</p>
-
-                <h4>Architecture</h4>
-                <p>Following the <em>PragProg</em> book's approach, I designed a stateful game engine in Elixir. It handles turns, player statistics, game rules, etc. The engine is a dependency of the server application, built with Phoenix.</p>
-                <p>The application use's Phoenix Channels to communicate with the client, and OTP supervised processes to spin up a state machine when the game starts. Authentication is non-existent, because I wanted to provide an arcade experience.</p>
-                <p>The original (ugly) client was an Emberjs application, but in 2022 I replaced it with React. This client is much cleaner, snappier, and less buggy. Both client versions communicate to the server via Websockets.</p>
-
-                <h4>Links</h4>
-                <ul>
-                    <li>
-                        <a href="https://futurebutcher.com" target="_blank">Play the game</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/jonchoukroun/future-butcher-engine" target="_blank">Game engine repo</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/jonchoukroun/future-butcher-api" target="_blank">Server application repo</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/jonchoukroun/future-butcher-web2" target="_blank">Web client repo (React)</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/jonchoukroun/future-butcher-web" target="_blank">Web client repo (old)</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-    </section>
-
-    <section id="william-storck" class="overlay">
-        <article class="modal">
-            <div class="modal-header">
-                <a href="#projects" class="close button">Close</a>
-            </div>
-            <div class="modal-content">
-                <h3>William Storck Portfolio</h3>
-
-                <h4>Design</h4>
-                <p>Because the goal of the site is to showcase the painter's art, I chose a minimalist style that wouldn't intefere. Mr. Storck and I worked together on a unique color palette intended to mimic the frames commonly used with his work.</p>
-
-                <h4>Architecture</h4>
-                <p>This is a simple Elixir/Phoenix CRUD application. However to allow Mr. Storck to manage his paintings and collections I created a gated admin site. This was a great opportunity to dive into <a href="https://hexdocs.pm/phoenix/contexts.html" target="_blank">Phoenix Contexts</a>.</p>
-
-                <p>Unfortunately the portfolio is now offline.</p>
-            </div>
-        </article>
-    </section>
-
-    <section id="sdsx" class="overlay">
-        <article class="modal">
-            <div class="modal-header">
-                <a href="#projects" class="close button">Close</a>
-            </div>
-            <div class="modal-content">
-                <h3>Synthesized Drum Sequencer</h3>
-                <p class="placeholder">Coming soon...</p>
-            </div>
-        </article>
-    </section>
-
-    <section id="chip8c" class="overlay">
-        <article class="modal">
-            <div class="modal-header">
-                <a href="#projects" class="close button">Close</a>
-            </div>
-            <div class="modal-content">
-                <h3>Chip-8c Emulator</h3>
-                <p class="placeholder">Coming soon...</p>
-            </div>
-        </article>
-    </section>
-
     <section id="projects">
         <h2 class="container-title">Projects</h2>
         <nav>
@@ -121,7 +37,7 @@
                 </header>
                 <p>Game engine, API, and web client for a turn-based strategy game. Built with Elixir and React.</p>
                 <footer>
-                    <a class="card-button button" href="#future-butcher">Explore</a>
+                    <a class="card-button button" href="future-butcher.html">Explore</a>
                 </footer>
             </article>
             <article class="card">
@@ -130,7 +46,7 @@
                 </header>
                 <p>Synthesized Drum Sequencer, written in C++ with PortAudio and wxWidgets.</p>
                 <footer>
-                    <a class="card-button button" href="#sdsx">Learn More</a>
+                    <a class="card-button button" href="sdsx.html">Learn More</a>
                 </footer>
             </article>
             <article class="card">
@@ -139,7 +55,7 @@
                 </header>
                 <p>Portfolio website and admin portal for the contemporary artist William Storck. Built in Elixir/Phoenix.</p>
                 <footer>
-                    <a class="card-button button" href="#william-storck">Dive In</a>
+                    <a class="card-button button" href="william-storck.html">Dive In</a>
                 </footer>
             </article>
             <article class="card">
@@ -148,7 +64,7 @@
                 </header>
                 <p>Emultaor for the ancient microprocessor interpreted language, written in C.</p>
                 <footer>
-                    <a class="card-button button" href="#chip8c">See More</a>
+                    <a class="card-button button" href="chip-8c.html">See More</a>
                 </footer>
             </article>
         </nav>
