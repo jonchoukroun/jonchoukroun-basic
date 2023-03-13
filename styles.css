@@ -13,6 +13,7 @@
     --body-type: 'American Typewriter', monospace;
     --body-size: 16px;
     --heading-size: 42px;
+    --compact-heading-size: 36px;
     --small-heading-size: 20px;
     --button-font-size: 16px;
     --card-title-size: 28px;
@@ -142,6 +143,44 @@ footer {
 footer > a {
     font-family: var(--body-type);
     font-size: var(--body-size);
+}
+
+pre {
+   overflow-x: scroll;
+   padding-inline: 10px;
+   background-color: var(--secondary-color);
+   color: var(--tertiary-accent-color); 
+   font-family: var(--body-type);
+   font-size: calc(var(--body-size) - 2px);
+   border: 2px solid var(--primary-color);
+   border-radius: 2px;
+   box-shadow: var(--primary-box-shadow);
+}
+
+pre span.code-comment {
+    color: var(--primary-accent-color);
+}
+
+@media (min-width: 1024px) {
+    pre {
+        margin-inline: 20px;
+    }
+}
+
+figure {
+    margin-block: 50px;
+    margin-inline: 0;
+}
+
+figure img {
+    inline-size: 100%;
+}
+
+figure figcaption {
+    font-family: var(--heading-type);
+    font-size: calc(var(--body-size) - 5px);
+    color: var(--secondary-color);
+    text-align: center;
 }
 
 
@@ -397,6 +436,85 @@ section.overlay article.modal .modal-content p.placeholder {
     100% {
         transform: translateX(-122vw);
     }
+}
+
+
+/* Project Writeups */
+section.writeup {
+    max-inline-size: 1000px;
+    margin: auto;
+    background-color: var(--secondary-bg-color);
+    border: none;
+}
+
+section.writeup > h1 {
+    position: relative;
+    font-size: var(--compact-heading-size);
+    text-shadow: var(--primary-text-shadow);
+}
+
+section.writeup > h1::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: -3px;
+    inset-block-start: 15px;
+    transform: rotateZ(-2deg);
+    z-index: -1;
+    inline-size: 325px;
+    block-size: 25px;
+    margin: auto;
+    background-color: var(--tertiary-accent-color);
+}
+
+@media (min-width: 1024px) {
+    section.writeup > h1 {
+        font-size: calc(var(--heading-size) + 20px);
+    }
+
+    section.writeup > h1::after {
+        inset-inline-start: -3px;
+        inset-block-start: 30px;
+        inline-size: 615px;
+        block-size: 45px;
+    }
+}
+
+section.writeup > h2.heading {
+    margin-block-start: 40px;
+    color: var(--secondary-color);
+    font-size: var(--small-heading-size);
+}
+
+section.writeup > nav.top-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+section.writeup > nav.bottom-nav {
+    display: flex;
+    justify-content: center;
+}
+
+section.writeup > nav a.button {
+    padding-block: 5px;
+    padding-inline: 10px;
+    background-color: var(--tertiary-accent-color);
+    font-family: var(--heading-type);
+    text-transform: uppercase;
+}
+
+section.writeup > ul > li {
+    font-family: var(--body-type);
+    font-size: var(--body-size);
+}
+
+section.writeup > ul.links {
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+section.writeup > ul > li > strong {
+    color: var(--secondary-accent-color);
 }
 
 
