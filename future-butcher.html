@@ -74,7 +74,7 @@
         <p>So in 2017 when I needed a project to learn the <a href="https://elixir-lang.org/" target="_blank">Elixir programming language</a>, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/" target="_blank">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
 
         <h2 class="heading">Design</h2>
-        <p>Right off the bat, I wanted to give Future Butcher had a cyberpunk feel. The original title was Slinger, and the player could buy and sell brain implants with different gameplay effects (free turns, greater strength, etc). But the concept was too unfamiliar for players who hadn't read any William Gibson and too derivative for those who had. Instead I took the game in a new direction - cannibalism.</p>
+        <p>Right off the bat, I wanted to give Future Butcher a cyberpunk feel. The original title was Slinger, and the player could buy and sell brain implants with different gameplay effects (free turns, greater strength, etc). But the concept was too unfamiliar for players who hadn't read any William Gibson and too derivative for those who had. Instead I took the game in a new direction - cannibalism as a hot trend.</p>
         <p>I kept the cyberpunk feel, with a UI intended to remind the player of an old terminal. Some of the events and encounters reinforce that cyberpunk feeling, with mentions of predatory corporations, weak (and possibly failed) governments, and near anarchy.</p>
 
         <h2 class="heading">Architecture</h2>
@@ -110,6 +110,14 @@ def check(_state, _action), do: {:error, :violates_current_rules}
         <nav class="bottom-nav">
             <a href="index.html" class="button">Home</a>
         </nav>
+    </section>
+
+    <section id="manifesto">
+        <article class="text-content">
+            <p>This static site is built entirely with HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto</a> on preserving web content for more details.</p>
+        
+            <p>Built by Jon Choukroun</p>
+        </article>
     </section>
 </body>
 </html>
