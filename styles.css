@@ -4,13 +4,15 @@
     --primary-bg-color: #ffffff;
     --secondary-bg-color: #cee5f2;
     --primary-color: #000000;
-    --secondary-color: #536b78;
+    --secondary-color: #2B4DB6;
+    --tertiary-color: #2F82B1;
     --primary-accent-color: #accbe1;
-    --secondary-accent-color: #637081;
+    --secondary-accent-color: #536b78;
     --tertiary-accent-color: #f4d35e;
     /* Type */
     --heading-type: 'Andale Mono', monospace;
     --body-type: 'American Typewriter', monospace;
+    --hero-type: 'Rockwell', 'Papyrus', monospace;
     --body-size: 16px;
     --heading-size: 42px;
     --compact-heading-size: 36px;
@@ -65,10 +67,20 @@ p {
     color: var(--primary-color);
 }
 
+a {
+    font-family: var(--body-type);
+    font-size: var(--body-size);
+    color: var(--secondary-color);
+}
+
+a:visited {
+    color: var(--secondary-color);
+}
+
 a.button {
     text-align: center;
     text-decoration: none;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--secondary-accent-color);
     box-shadow: var(--primary-box-shadow);
 }
 
@@ -76,10 +88,6 @@ a.button:hover {
     box-shadow: var(--secondary-box-shadow);
     transform: translateX(-2px) translateY(-2px);
     transition: all ease 100ms;
-}
-
-a:visited {
-    color: var(--primary-color);
 }
 
 a.button:active {
@@ -90,7 +98,7 @@ section {
     padding-block: 50px;
     padding-inline: 5vw;
     background-color: var(--primary-bg-color);
-    border-block-end: 3px solid var(--secondary-color);
+    border-block-end: 3px solid var(--secondary-accent-color);
 }
 
 section > h2.container-title {
@@ -148,7 +156,7 @@ footer > a {
 pre {
    overflow-x: scroll;
    padding-inline: 10px;
-   background-color: var(--secondary-color);
+   background-color: var(--secondary-accent-color);
    color: var(--tertiary-accent-color); 
    font-family: var(--body-type);
    font-size: calc(var(--body-size) - 2px);
@@ -179,7 +187,7 @@ figure img {
 figure figcaption {
     font-family: var(--heading-type);
     font-size: calc(var(--body-size) - 5px);
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     text-align: center;
 }
 
@@ -197,9 +205,10 @@ figure figcaption {
     margin-block-start: 60px;
     margin-block-end: 0;
     text-align: start;
-    font-size: 16vw;
+    font-family: var(--hero-type);
+    font-size: 13vw;
     white-space: nowrap;
-    color: var(--secondary-accent-color);
+    color: var(--tertiary-color);
     text-shadow: var(--title-shadow);
     animation: scrollText 12s linear infinite;
 }
@@ -274,14 +283,14 @@ section.overlay article.modal .modal-header {
     justify-content: flex-end;
     padding-block: 20px;
     padding-inline: 15px;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-accent-color);
     border-bottom: 2px solid var(--primary-color);
 }
 
 section.overlay article.modal .modal-header .close {
     padding: 5px;
     background-color: var(--secondary-bg-color);
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     font-family: var(--heading-type);
     font-size: var(--small-size);
     font-weight: 600;
@@ -305,7 +314,7 @@ section.overlay article.modal .modal-content {
 
 section.overlay article.modal .modal-content h3 {
     margin-block-start: 0;
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     font-family: var(--heading-type);
     font-size: var(--modal-title-size);
     font-weight: 400;
@@ -332,7 +341,7 @@ section.overlay article.modal .modal-content li {
 }
 
 section.overlay article.modal .modal-content p.placeholder {
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     font-style: italic;
     text-align: center;
 
@@ -353,7 +362,7 @@ section.overlay article.modal .modal-content p.placeholder {
     justify-content: flex-start;
     padding-block: 30px;
     padding-inline: 30px;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-accent-color);
     border: 3px solid var(--primary-color);
     box-shadow: var(--primary-box-shadow);
 }
@@ -370,7 +379,7 @@ section.overlay article.modal .modal-content p.placeholder {
 }
 
 #projects article.card:nth-child(2n) h3 {
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
 }
 
 #projects article.card p {
@@ -378,7 +387,7 @@ section.overlay article.modal .modal-content p.placeholder {
 }
 
 #projects article.card:nth-child(2n) p {
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
 }
 
 #projects article.card > footer {
@@ -393,7 +402,7 @@ section.overlay article.modal .modal-content p.placeholder {
     padding-block: 10px;
     background-color: var(--primary-accent-color);
     border-radius: 2px;
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     font-family: var(--heading-type);
     font-size: var(--body-size);
 }
@@ -413,7 +422,7 @@ section.overlay article.modal .modal-content p.placeholder {
 }
 
 #manifesto {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-accent-color);
 }
 
 #manifesto p {
@@ -481,8 +490,9 @@ section.writeup > h1::after {
 
 section.writeup > h2.heading {
     margin-block-start: 40px;
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
     font-size: var(--small-heading-size);
+    text-transform: capitalize;
 }
 
 section.writeup > nav.top-nav {
@@ -526,7 +536,7 @@ section.writeup > ul > li > strong {
 }
 
 .error-container h1 {
-    color: var(--secondary-color);
+    color: var(--secondary-accent-color);
 }
 
 .error-container p {
