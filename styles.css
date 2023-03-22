@@ -67,6 +67,11 @@ p {
     color: var(--primary-color);
 }
 
+small {
+    font-family: var(--body-type);
+    color: var(--primary-color);
+}
+
 a {
     font-family: var(--body-type);
     font-size: var(--body-size);
