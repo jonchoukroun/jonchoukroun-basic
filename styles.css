@@ -15,7 +15,7 @@
     --hero-type: 'Franklin Gothic Medium', 'Geneva', sans-serif;
     /* Size */
     --body-size: 16px;
-    --heading-size: 42px;
+    --heading-size: 36px;
     --hero-size: 42px;
     --compact-heading-size: 36px;
     --small-heading-size: 20px;
@@ -27,9 +27,12 @@
     --hero-block-padding: 48px;
     /* Shadows */
     --primary-box-shadow: 5px 5px var(--primary-color);
-    --primary-text-shadow: 3px 3px var(--primary-color);
+    --primary-text-shadow: 2px 2px var(--primary-accent-color);
     --secondary-box-shadow: 9px 9px var(--primary-color);
     --title-shadow: rgba(255, 255, 255, 0.5) 3px 5px 1px;
+    /* Borders */
+    --title-border: 3px groove var(--primary-accent-color);
+    --section-border: 6px groove var(--primary-accent-color);
 }
 
 @media (min-width: 1024px) {
@@ -43,7 +46,7 @@
         --modal-title-size: 48px;
         --small-size: 16px;
         --hero-block-padding: 100px;
-        --primary-text-shadow: 5px 5px var(--primary-color);
+        --primary-text-shadow: 2px 2px var(--primary-accent-color);
     }
 }
 
@@ -64,7 +67,6 @@ h1, h2, h3{
     font-family: var(--heading-type);
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--primary-accent-color);
 }
 
 p {
@@ -109,42 +111,23 @@ section {
     padding-block: 50px;
     padding-inline: 5vw;
     background-color: var(--primary-bg-color);
-    border-block-end: 3px solid var(--secondary-accent-color);
+    border-block-end: var(--section-border);
 }
 
-section > h2.container-title {
+section h2.container-title {
     position: relative;
     margin-block-end: 40px;
+    color: var(--primary-color);
     font-size: var(--heading-size);
     text-shadow: var(--primary-text-shadow);
 }
 
-section > h2.container-title::after {
-    content: '';
-    position: absolute;
-    inset-inline-start: -3px;
-    inset-block-start: 10px;
-    transform: rotateZ(-5deg);
-    z-index: -1;
-    inline-size: 150px;
-    block-size: 45px;
-    margin: auto;
-    background-color: var(--tertiary-accent-color);
-}
 
 h2.container-title:last-child {
     color: var(--primary-accent-color);
 }
 
 @media (min-width: 1024px) {
-    section > h2.container-title::after {
-        inset-inline-start: 25px;
-        inset-block-start: 5px;
-        transform: rotateZ(-5deg);
-        inline-size: 225px;
-        block-size: 55px;
-    }
-
     .container-title:last-child {
         color: var(--primary-accent-color);
     }
@@ -432,8 +415,9 @@ section.overlay article.modal .modal-content p.placeholder {
     color: var(--secondary-bg-color);
 }
 
-#bio > h2.container-title::after {
-   background-color: var(--secondary-accent-color)
+#bio h2.container-title {
+    font-size: var(--heading-size);
+    text-shadow: var(--primary-text-shadow);
 }
 
 #manifesto {
@@ -463,19 +447,7 @@ section.writeup > h1 {
     position: relative;
     font-size: var(--compact-heading-size);
     text-shadow: var(--primary-text-shadow);
-}
-
-section.writeup > h1::after {
-    content: '';
-    position: absolute;
-    inset-inline-start: -3px;
-    inset-block-start: 15px;
-    transform: rotateZ(-2deg);
-    z-index: -1;
-    inline-size: 325px;
-    block-size: 25px;
-    margin: auto;
-    background-color: var(--tertiary-accent-color);
+    border-block-end: var(--title-border);
 }
 
 @media (min-width: 1024px) {
