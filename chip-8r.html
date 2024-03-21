@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Jon Choukroun | Chip-8R" />
+    <meta property="og:description" content="Project writeup for the Chip-8R emulator" />
+    <meta property="og:url" content="https://jonchoukroun.com/Chip-8R.html" />
+    <meta property="og:type" content="website" />
+    <!-- <meta property="og:image" content="assets/ws-portfolio.png" /> -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Jon Choukroun | Chip-8R" />
+    <meta property="twitter:description" content="Project writeup for the Chip-8R emulator" />
+    <!-- <meta property="twitter:image" content="assets/ws-portfolio.png" /> -->
+    <link rel="icon" href="assets/digital-security.png" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Jon Choukroun | Chip-8R</title>
+</head>
+<body>
+    <section id="chip-8r" class="writeup">
+        <nav class="top-nav">
+            <a href="index.html" class="button">Home</a>
+        </nav>
+
+        <h1>Chip-8R</h1>
+
+        <figure>
+            <img src="assets/chip-8r.png" alt="Chip-8R emulator running IBM logo ROM">
+            <figcaption>Chip-8R emulator running the IBM logo rom</figcaption>
+        </figure>
+
+        <h2 class="heading">Links</h2>
+        <ul class="links">
+            <li>
+                <a href="https://github.com/jonchoukroun/chip-8r" target="_blank">Emulator repo</a>
+            </li>
+        </ul>
+
+        <h2 class="heading">Specs</h2>
+        <ul class="specs">
+            <li><strong>Platform:</strong> macOS</li>
+            <li><strong>Status:</strong> Feature complete</li>
+            <li><strong>Technology:</strong> Rust, SDL</li>
+        </ul>
+
+        <h2 class="heading">Background</h2>
+        <p>When I decided to learn C, a friend suggested I build a <a href="https://en.wikipedia.org/wiki/CHIP-8">Chip-8 emulator</a>. In addition to learning the language with a small, but non-trivial project, I learned quite a bit about how CPUs work - opcodes, memory read/writes, buses, framebuffers, etc. So when I needed a project to learn Rust, I turned to Chip-8 again. I was able to focus on the language details, since I was already familiar with the emulator architecture.</p>
+
+        <h2 class="heading">Design</h2>
+        <p>The Chip-8 is an old interpreted language, often picked for a programmer's first emulator project. It's reasonably simple, with a handful of simple instructions. Input, audio, and display functionality are also limited, giving the programmer an introduction to these systems, without overwhelming them.</p>
+
+        <p>The design of my Chip-8R emulator is quite simple. It's broken up into the following components:</p>
+        <ul>
+            <li>
+                <strong>CPU:</strong>
+                <p>This struct owns the bus, registers, and frame buffer. The <code>Cpu::run()</code> function starts the game loop, handling keyboard input; fetching, decoding, and excecuting the next instruction; updating the display; decrementing the sound and delay timers; and playing audio.</p>
+                <p>To ensure the emulator runs at 700Hz, the run loop also waits. This isn't a cycle-accurate emulator.</p>
+            </li>
+            <li>
+                <strong>Bus:</strong>
+                <p>Similar to a real bus, this component is how the CPU communicates with the rest of the system - RAM, the display, the audio system, and the keyboard. Rather than calling those modules directly the CPU calls bus functions, like <code>Bus::render()</code> and <code>Bus::play_audio()</code>.</p>
+                <p>For example, the bus allows the CPU to query the current keyboard state. Two instructions are conditional skips that check if a certain key is pressed. Another halts the loop (handled by the CPU) until a key is pressed. This state is all exposed by the bus.</p>
+                <p>This means the bus module owns the SDL context used to handle input events, draw to screen, and play audio. This context is then passed as a reference to those modules.</p>
+                <p>The bus's other critical functions are ROM loading, and the introduction prompts. These are rendered using the <a href="https://crates.io/crates/native-dialog">native dialog</a> crate. I also used this crate to access the file system. Many emulators are run from the command line, using arguments for ROM loading and other system configs. Instead I wanted to explore Rust's native windowing and file system access.</p>
+            </li>
+            <li>Keyboard (input)</li>
+            <li>Display</li>
+            <li>Audio</li>
+        </ul>
+
+        <h2 class="heading">Architecture</h2>
+        <p>Coming soon...</p>
+        
+        <h2 class="heading">Closing Thoughts</h2>
+        <p>Coming soon...</p>
+        
+        <nav class="bottom-nav">
+            <a href="index.html" class="button">Home</a>
+        </nav>
+    </section>
+
+    <section id="manifesto">
+        <article class="text-content">
+            <p>This static site is built entirely with HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto</a> on preserving web content for more details.</p>
+        
+            <p>Built by Jon Choukroun</p>
+        </article>
+    </section>
+</body>
+</html>
+
+
+
