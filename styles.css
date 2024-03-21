@@ -10,33 +10,39 @@
     --secondary-accent-color: #536b78;
     --tertiary-accent-color: #f4d35e;
     /* Type */
-    --heading-type: 'Andale Mono', monospace;
+    --heading-type: 'Franklin Gothic Medium', 'Geneva', monospace;
     --body-type: 'American Typewriter', monospace;
-    --hero-type: 'Rockwell', 'Papyrus', monospace;
+    --hero-type: 'Franklin Gothic Medium', 'Geneva', sans-serif;
+    /* Size */
     --body-size: 16px;
     --heading-size: 42px;
+    --hero-size: 42px;
     --compact-heading-size: 36px;
     --small-heading-size: 20px;
     --button-font-size: 16px;
     --card-title-size: 28px;
     --modal-title-size: 24px;
     --small-size: 12px;
+    /* Spacing */
+    --hero-block-padding: 48px;
     /* Shadows */
     --primary-box-shadow: 5px 5px var(--primary-color);
     --primary-text-shadow: 3px 3px var(--primary-color);
     --secondary-box-shadow: 9px 9px var(--primary-color);
-    --title-shadow: 0.75vw 0.75vw var(--primary-color);
+    --title-shadow: rgba(255, 255, 255, 0.5) 3px 5px 1px;
 }
 
 @media (min-width: 1024px) {
     :root {
         --body-size: 20px;
-        --heading-size: 50px;
+        --heading-size: 42px;
+        --hero-size: 140px;
         --small-heading-size: 28px;
         --button-font-size: 24px;
         --card-title-size: 32px;
         --modal-title-size: 48px;
         --small-size: 16px;
+        --hero-block-padding: 100px;
         --primary-text-shadow: 5px 5px var(--primary-color);
     }
 }
@@ -201,21 +207,25 @@ figure figcaption {
 
 #hero {
     background-color: var(--secondary-bg-color);
-    padding-block-start: 120px;
-    padding-inline: 0;
+    padding-block-start: var(--hero-bock-padding);
+    padding-inline: auto;
     overflow: hidden;
 }
 
 #hero > h1 {
     margin-block-start: 60px;
     margin-block-end: 0;
-    text-align: start;
+    text-align: center;
     font-family: var(--hero-type);
-    font-size: 13vw;
+    font-size: var(--hero-size);
+    text-transform: none;
     white-space: nowrap;
-    color: var(--tertiary-color);
+    background-color: var(--tertiary-color);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
     text-shadow: var(--title-shadow);
-    animation: scrollText 12s linear infinite;
 }
 
 #hero > p {
@@ -438,18 +448,6 @@ section.overlay article.modal .modal-content p.placeholder {
 
 #manifesto a {
     color: var(--primary-accent-color);
-}
-
-
-/* Animations */
-
-@keyframes scrollText {
-    0% {
-        transform: translateX(95vw);
-    }
-    100% {
-        transform: translateX(-122vw);
-    }
 }
 
 
