@@ -1,14 +1,16 @@
 /* CSS Variables */
 :root {
     /* Colors */
-    --primary-bg-color: #ffffff;
-    --secondary-bg-color: #cee5f2;
-    --primary-color: #000000;
-    --secondary-color: #2B4DB6;
-    --tertiary-color: #2F82B1;
-    --primary-accent-color: #accbe1;
-    --secondary-accent-color: #536b78;
-    --tertiary-accent-color: #f4d35e;
+    --color-black: #010414;
+    --color-blue: #53b3f8;
+    --color-dark-blue: #20455f;
+    --color-cyan: #4adfdf;
+    --color-green: #53f8a6;
+    --color-purple: #644384;
+    --color-magenta: #ff57ff;
+    --color-red: #e35050;
+    --color-yellow: #a85700;
+
     /* Type */
     --heading-type: 'Franklin Gothic Medium', 'Geneva', monospace;
     --body-type: 'American Typewriter', monospace;
@@ -26,13 +28,14 @@
     /* Spacing */
     --hero-block-padding: 48px;
     /* Shadows */
-    --primary-box-shadow: 5px 5px var(--primary-color);
-    --primary-text-shadow: 2px 2px var(--primary-accent-color);
-    --secondary-box-shadow: 9px 9px var(--primary-color);
+    --primary-box-shadow: 5px 5px var(--color-dark-blue);
+    --secondary-box-shadow: 6px 6px var(--color-magenta);
     --title-shadow: rgba(255, 255, 255, 0.5) 3px 5px 1px;
     /* Borders */
-    --title-border: 3px groove var(--primary-accent-color);
-    --section-border: 6px groove var(--primary-accent-color);
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--color-blue);
+    --border-radius: 3px;
 }
 
 @media (min-width: 1024px) {
@@ -46,7 +49,6 @@
         --modal-title-size: 48px;
         --small-size: 16px;
         --hero-block-padding: 100px;
-        --primary-text-shadow: 2px 2px var(--primary-accent-color);
     }
 }
 
@@ -60,46 +62,53 @@
 
 body {
     margin: 0;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--color-black);
 }
 
 h1, h2, h3{
     font-family: var(--heading-type);
     font-weight: 700;
-    text-transform: uppercase;
+    color: var(--color-cyan);
 }
 
 p {
     font-family: var(--body-type);
     font-size: var(--body-size);
-    color: var(--primary-color);
+    color: var(--color-blue);
 }
 
 small {
     font-family: var(--body-type);
-    color: var(--primary-color);
+    color: var(--color-blue);
 }
 
 a {
     font-family: var(--body-type);
     font-size: var(--body-size);
-    color: var(--secondary-color);
+    color: var(--color-green);
 }
 
 a:visited {
-    color: var(--secondary-color);
+    color: var(--color-purple);
 }
 
 a.button {
     text-align: center;
     text-decoration: none;
-    border: 2px solid var(--secondary-accent-color);
+    color: var(--color-cyan);
+    border-radius: var(--border-radius);
+    border-style: var(--border-style);
+    border-width: var(--border-width);
     box-shadow: var(--primary-box-shadow);
+    text-transform: uppercase;
+}
+
+a.button:visited {
+    color: var(--color-cyan);
 }
 
 a.button:hover {
     box-shadow: var(--secondary-box-shadow);
-    transform: translateX(-2px) translateY(-2px);
     transition: all ease 100ms;
 }
 
@@ -110,27 +119,15 @@ a.button:active {
 section {
     padding-block: 50px;
     padding-inline: 5vw;
-    background-color: var(--primary-bg-color);
-    border-block-end: var(--section-border);
+    border-block-end-color: var(--border-color);
+    border-block-end-style: var(--border-style);
+    border-block-end-width: var(--border-width);
 }
 
 section h2.container-title {
     position: relative;
     margin-block-end: 40px;
-    color: var(--primary-color);
     font-size: var(--heading-size);
-    text-shadow: var(--primary-text-shadow);
-}
-
-
-h2.container-title:last-child {
-    color: var(--primary-accent-color);
-}
-
-@media (min-width: 1024px) {
-    .container-title:last-child {
-        color: var(--primary-accent-color);
-    }
 }
 
 section > article {
@@ -148,19 +145,20 @@ footer > a {
 }
 
 pre {
-   overflow-x: scroll;
-   padding-inline: 10px;
-   background-color: var(--secondary-accent-color);
-   color: var(--tertiary-accent-color); 
-   font-family: var(--body-type);
-   font-size: calc(var(--body-size) - 2px);
-   border: 2px solid var(--primary-color);
-   border-radius: 2px;
-   box-shadow: var(--primary-box-shadow);
+    overflow-x: scroll;
+    padding-inline: 10px;
+    color: var(--color-cyan); 
+    font-family: var(--body-type);
+    font-size: calc(var(--body-size) - 2px);
+    border-color: var(--border-color);
+    border-radius: var(--border-radius);
+    border-style: var(--border-style);
+    border-width: var(--border-width);
+    box-shadow: var(--primary-box-shadow);
 }
 
 pre span.code-comment {
-    color: var(--primary-accent-color);
+    color: var(--color-purple);
 }
 
 @media (min-width: 1024px) {
@@ -181,7 +179,7 @@ figure img {
 figure figcaption {
     font-family: var(--heading-type);
     font-size: calc(var(--body-size) - 5px);
-    color: var(--secondary-accent-color);
+    color: var(--color-purple);
     text-align: center;
 }
 
@@ -189,7 +187,6 @@ figure figcaption {
 /* Section-Specific */
 
 #hero {
-    background-color: var(--secondary-bg-color);
     padding-block-start: var(--hero-bock-padding);
     padding-inline: auto;
     overflow: hidden;
@@ -201,14 +198,8 @@ figure figcaption {
     text-align: center;
     font-family: var(--hero-type);
     font-size: var(--hero-size);
-    text-transform: none;
+    color: var(--color-green);
     white-space: nowrap;
-    background-color: var(--tertiary-color);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: var(--title-shadow);
 }
 
 #hero > p {
@@ -220,129 +211,22 @@ figure figcaption {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin-block-start: 80px;
+    margin-inline: auto;
 }
 
 #hero > nav > a.button {
     inline-size: 100px;
     margin-inline: 10px;
     padding-block: 10px;
-    background-color: var(--tertiary-accent-color);
     font-family: var(--heading-type);
     font-size: var(--button-font-size);
-    text-transform: uppercase;
 }
 
 @media (min-width: 1024px) {
     #hero > nav > a.button {
         inline-size: 200px;
     }
-}
-
-section.overlay {
-    position: fixed;
-    inset-block-start: 0;
-    inset-block-end: 0;
-    inset-inline-start: 0;
-    inset-inline-end: 0;
-    padding-inline: 8px;
-    background-color: rgba(0, 0, 0, 0.8);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 200ms;
-}
-section.overlay:target {
-    z-index: 10;
-    visibility: visible;
-    opacity: 1;
-}
-
-section.overlay article.modal {
-    max-block-size: 600px;
-    inline-size: 100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background-color: var(--secondary-bg-color);
-    border: 4px solid var(--primary-color);
-    border-radius: 10px;
-    box-shadow: var(--primary-box-shadow);
-}
-
-@media (min-width: 1024px) {
-    section.overlay article.modal {
-        margin: 75px auto;
-    }
-}
-
-section.overlay article.modal .modal-header {
-    display: flex;
-    justify-content: flex-end;
-    padding-block: 20px;
-    padding-inline: 15px;
-    background-color: var(--secondary-accent-color);
-    border-bottom: 2px solid var(--primary-color);
-}
-
-section.overlay article.modal .modal-header .close {
-    padding: 5px;
-    background-color: var(--secondary-bg-color);
-    color: var(--secondary-accent-color);
-    font-family: var(--heading-type);
-    font-size: var(--small-size);
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-section.overlay article.modal .modal-content {
-    padding: 15px;
-    overflow-x: scroll;
-}
-
-@media (min-width: 1024px) {
-    section.overlay article.modal .modal-header {
-        padding-inline: 40px;
-    }
-
-    section.overlay article.modal .modal-content {
-        padding: 40px;
-    }
-}
-
-section.overlay article.modal .modal-content h3 {
-    margin-block-start: 0;
-    color: var(--secondary-accent-color);
-    font-family: var(--heading-type);
-    font-size: var(--modal-title-size);
-    font-weight: 400;
-    text-align: center;
-    text-transform: none;
-}
-
-section.overlay article.modal .modal-content h4 {
-    margin-block-start: 60px;
-    margin-block-end: 10px;
-    font-family: var(--heading-type);
-    font-size: var(--small-heading-size);
-}
-
-section.overlay article.modal .modal-content ul {
-    padding: 0;
-    list-style: none;
-}
-
-section.overlay article.modal .modal-content li {
-    margin-block-end: 10px;
-    font-family: var(--body-type);
-    font-size: var(--body-size);
-}
-
-section.overlay article.modal .modal-content p.placeholder {
-    color: var(--secondary-accent-color);
-    font-style: italic;
-    text-align: center;
-
 }
 
 #projects > nav {
@@ -360,32 +244,24 @@ section.overlay article.modal .modal-content p.placeholder {
     justify-content: flex-start;
     padding-block: 30px;
     padding-inline: 30px;
-    background-color: var(--secondary-accent-color);
-    border: 3px solid var(--primary-color);
+    background-color: var(--color-black);
+    border-color: var(--border-color);
+    border-radius: var(--border-radius);
+    border-style: var(--border-style);
+    border-width: var(--border-width);
     box-shadow: var(--primary-box-shadow);
-}
-
-#projects article.card:nth-child(2n) {
-    background-color: var(--secondary-bg-color);
 }
 
 #projects article.card h3 {
     margin-block-end: 40px;
     font-size: var(--card-title-size);
     text-align: center;
-    color: var(--secondary-bg-color);
-}
-
-#projects article.card:nth-child(2n) h3 {
-    color: var(--secondary-accent-color);
+    color: var(--color-blue);
 }
 
 #projects article.card p {
-    color: var(--secondary-bg-color);
-}
-
-#projects article.card:nth-child(2n) p {
-    color: var(--secondary-accent-color);
+    color: var(--color-blue);
+    text-align: center;
 }
 
 #projects article.card > footer {
@@ -398,40 +274,33 @@ section.overlay article.modal .modal-content p.placeholder {
 #projects a.card-button {
     inline-size: 60%;
     padding-block: 10px;
-    background-color: var(--primary-accent-color);
-    border-radius: 2px;
-    color: var(--secondary-accent-color);
+    border-radius: var(--border-radius);
+    color: var(--color-cyan);
     font-family: var(--heading-type);
     font-size: var(--body-size);
 }
 
-#projects article.card:nth-child(2n) a.card-button {
-    background-color: var(--secondary-accent-color);
-    color: var(--tertiary-accent-color);
-}
-
 #bio {
-    background-color: var(--tertiary-accent-color);
-    color: var(--secondary-bg-color);
+    color: var(--color-black);
 }
 
 #bio h2.container-title {
     font-size: var(--heading-size);
-    text-shadow: var(--primary-text-shadow);
 }
 
 #manifesto {
-    background-color: var(--secondary-accent-color);
+    background-color: var(--color-black);
+    border-block-end: none;
 }
 
 #manifesto p {
     text-align: center;
     font-size: var(--small-size);
-    color: var(--primary-bg-color);
 }
 
 #manifesto a {
-    color: var(--primary-accent-color);
+    color: var(--color-green);
+    font-size: var(--small-size);
 }
 
 
@@ -439,15 +308,16 @@ section.overlay article.modal .modal-content p.placeholder {
 section.writeup {
     max-inline-size: 1000px;
     margin: auto;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--color-black);
     border: none;
 }
 
 section.writeup > h1 {
     position: relative;
     font-size: var(--compact-heading-size);
-    text-shadow: var(--primary-text-shadow);
-    border-block-end: var(--title-border);
+    color: var(--color-blue);
+    border-block-end-style: var(--border-style);
+    border-block-end-width: var(--border-width);
 }
 
 @media (min-width: 1024px) {
@@ -465,7 +335,7 @@ section.writeup > h1 {
 
 section.writeup > h2.heading {
     margin-block-start: 40px;
-    color: var(--secondary-accent-color);
+    color: var(--color-cyan);
     font-size: var(--small-heading-size);
     text-transform: capitalize;
 }
@@ -483,7 +353,6 @@ section.writeup > nav.bottom-nav {
 section.writeup > nav a.button {
     padding-block: 5px;
     padding-inline: 10px;
-    background-color: var(--tertiary-accent-color);
     font-family: var(--heading-type);
     text-transform: uppercase;
 }
@@ -499,7 +368,7 @@ section.writeup > ul.links {
 }
 
 section.writeup > ul > li > strong {
-    color: var(--secondary-accent-color);
+    color: var(--color-magenta);
 }
 
 
@@ -511,17 +380,16 @@ section.writeup > ul > li > strong {
 }
 
 .error-container h1 {
-    color: var(--secondary-accent-color);
+    color: var(--color-magenta);
 }
 
 .error-container p {
-    color: var(--secondary-accent-color);
+    color: var(--color-magenta);
 }
 
 .error-container a.button {
     padding-block: 10px;
     padding-inline: 10px;
-    background-color: var(--tertiary-accent-color);
     font-family: var(--heading-type);
     font-size: var(--button-font-size);
     text-transform: uppercase;
