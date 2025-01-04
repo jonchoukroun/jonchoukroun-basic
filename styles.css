@@ -11,16 +11,19 @@
   /* Type */
   --main-type-family: "American Typewriter", "Courier", monospace;
   --heading-type-size: 36px;
-  --body-type-size: 18px;
+  --body-type-size: 20px;
   --heading-weight: 700;
   /* Spacing */
   --section-padding: 10px 6px;
   --border-padding: 4px;
   --navbar-block-size: 28px;
   /* Borders */
-  --border-width: 2px;
+  --border-block-width: 2px;
+  --border-inline-width: 4px;
   --border-style: solid;
   --border-color: var(--color-black);
+  /* Shadows */
+  --box-shadow: 20px 20px 0px var(--color-black);
 }
 
 /* Base Elements */
@@ -70,7 +73,8 @@ section {
 }
 
 .outer-border {
-  border-width: var(--border-width);
+  border-block-width: var(--border-block-width);
+  border-inline-width: var(--border-inline-width);
   border-style: var(--border-style);
   padding: var(--border-padding);
 }
@@ -87,27 +91,65 @@ section {
   block-size: var(--navbar-block-size);
   inline-size: 100%;
   background-color: var(--color-grey);
-  border-color: transparent;
-  border-block-end-color: var(--color-grey);
-  border-style: outset;
-  border-width: var(--border-width);
-}
-
-@media (max-width: 425px) {
-  #navbar {
-    display: flex;
-    justify-content: space-around;
-  }
-}
-
-#navbar span {
-  margin-inline: 36px;
+  z-index: 10000;
 }
 
 #navbar a {
-  font-weight: 800;
   color: var(--color-black);
+  font-weight: 800;
   text-decoration: none;
+  cursor: pointer;
+}
+
+#navbar .menu {
+  display: inline-block;
+  position: relative;
+  margin-inline: 32px;
+}
+
+#navbar .menu .menu-button {
+  transition: 0.35s ease-out;
+  padding-inline: var(--border-padding);
+}
+
+#navbar .menu .menu-content {
+  min-width: 350%;
+  position: absolute;
+  top: 50%;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  background-color: var(--color-grey);
+  box-shadow: var(--box-shadow);
+}
+
+#navbar .menu .menu-content a.menu-item {
+  display: block;
+  margin: 4px;
+  padding-block: 2px;
+  padding-inline: 8px;
+}
+
+#navbar .menu .menu-content .outer-border {
+  padding: 0;
+}
+
+#navbar .menu .menu-content .divider {
+  margin-block: 8px;
+  border-block-end-color: var(--border-color);
+  border-block-end-style: var(--border-style);
+  border-block-end-width: var(--border-width);
+}
+
+#navbar .menu .menu-content a.menu-item:hover {
+  background-color: var(--color-black);
+  color: var(--color-grey);
+}
+
+#navbar .menu:focus .menu-content {
+  transform: translateY(15px);
+  visibility: visible;
+  opacity: 1;
 }
 
 #hero {
@@ -205,7 +247,7 @@ article.card {
   block-size: 100%;
   padding: var(--section-padding);
   background-color: var(--color-grey);
-  box-shadow: 20px 20px 0px var(--color-black);
+  box-shadow: var(--box-shadow);
 }
 
 article.card .outer-border {
