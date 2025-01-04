@@ -1,82 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="Jon Choukroun | Future Butcher" />
-        <meta property="og:description" content="Project writeup for the Future Butcher turn-based strategy game." />
-        <meta property="og:url" content="https://jonchoukroun.com/future-butcher.html" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="assets/fb-landing.png" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Jon Choukroun | Future Butcher" />
-        <meta property="twitter:description" content="Project writeup for the Future Butcher turn-based strategy game." />
-        <meta property="twitter:image" content="assets/fb-landing.png" />
-        <link rel="icon" href="assets/digital-security.png" />
-        <link rel="stylesheet" href="styles.css">
-        <title>Jon Choukroun | Future Butcher</title>
-    </head>
-    <body>
-        <div id="navbar">
-            <span><a href="index.html" class="button">Home</a></span>
-            <span><a href="https://github.com/jonchoukroun" target="_blank" class="button">GitHub</a></span>
-            <span><a href="index.html#projects" class="button">Projects</a></span>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Jon Choukroun | Future Butcher" />
+    <meta
+      property="og:description"
+      content="Project writeup for the Future Butcher turn-based strategy game."
+    />
+    <meta
+      property="og:url"
+      content="https://jonchoukroun.com/future-butcher.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/fb-landing.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Jon Choukroun | Future Butcher" />
+    <meta
+      property="twitter:description"
+      content="Project writeup for the Future Butcher turn-based strategy game."
+    />
+    <meta property="twitter:image" content="assets/fb-landing.png" />
+    <link rel="icon" href="assets/digital-security.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Jon Choukroun | Future Butcher</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <span><a href="index.html" class="button">Home</a></span>
+      <span
+        ><a
+          href="https://github.com/jonchoukroun"
+          target="_blank"
+          class="button"
+          >GitHub</a
+        ></span
+      >
+      <span><a href="index.html#projects" class="button">Projects</a></span>
+    </div>
 
-        <section id="future-butcher" class="writeup">
-            <div class="title-container">
-                <h1>Future Butcher</h1>
+    <section id="future-butcher" class="writeup">
+      <div class="title-container">
+        <h1>Future Butcher</h1>
+      </div>
+
+      <h2 class="heading">Background</h2>
+
+      <p>
+        Do you remember Drug Wars? I spent hours during high school math class
+        playing that game on my TI-83 calculator. I got hooked on the game's
+        simplicity, fascinated by how the combination of RNG and an edgy subject
+        combined to make it infinitely replayable.
+      </p>
+      <p>
+        So in 2017 when I needed a project to learn the
+        <a href="https://elixir-lang.org/" target="_blank"
+          >Elixir programming language</a
+        >, Drug Wars came to mind. I had started reading the excellent Pragmatic
+        Programmers book
+        <a
+          href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/"
+          target="_blank"
+          >Functional Web Development with Elixir, OTP, and Phoenix</a
+        >, which provides an in-depth tutorial building a Battleship-type game.
+        But instead of following the material to the letter, I decided to build
+        my own game with the book as a guide. I didn't want to rip off John E.
+        Dell's original either, so I spent some time brainstorming a new world.
+      </p>
+
+      <figure>
+        <img src="assets/fb-landing.png" alt="Future Butcher landing page" />
+        <figcaption>Landing page</figcaption>
+      </figure>
+
+      <div class="links-container">
+        <article class="card">
+          <div class="outer-border">
+            <div class="inner-border">
+              <header>
+                <div class="card-title">
+                  <h3>Links</h3>
+                </div>
+              </header>
+              <div class="content">
+                <ul class="links">
+                  <li>
+                    <a href="https://futurebutcher.com" target="_blank"
+                      >Play the game</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/jonchoukroun/future-butcher-engine"
+                      target="_blank"
+                      >Game engine repo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/jonchoukroun/future-butcher-api"
+                      target="_blank"
+                      >Server application repo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/jonchoukroun/future-butcher-web2"
+                      target="_blank"
+                      >Web client repo (React)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/jonchoukroun/future-butcher-web"
+                      target="_blank"
+                      >Web client repo (old)</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            <h2 class="heading">Background</h2>
-
-            <p>Do you remember Drug Wars? I spent hours during high school math class playing that game on my TI-83 calculator. I got hooked on the game's simplicity, fascinated by how the combination of RNG and an edgy subject combined to make it infinitely replayable.</p>
-            <p>So in 2017 when I needed a project to learn the <a href="https://elixir-lang.org/" target="_blank">Elixir programming language</a>, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/" target="_blank">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
-
-            <figure>
-                <img src="assets/fb-landing.png" alt="Future Butcher landing page">
-                <figcaption>Landing page</figcaption>
-            </figure>
-
-            <div class="links-container">
-                <article class="card">
-                    <div class="outer-border">
-                        <div class="inner-border">
-                            <header>
-                                <div class="card-title">
-                                    <h3>Links</h3>
-                                </div>
-                            </header>
-                            <div class="content">
-                                <ul class="links">
-                                    <li>
-                                        <a href="https://futurebutcher.com" target="_blank">Play the game</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/jonchoukroun/future-butcher-engine" target="_blank">Game engine repo</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/jonchoukroun/future-butcher-api" target="_blank">Server application repo</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/jonchoukroun/future-butcher-web2" target="_blank">Web client repo (React)</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/jonchoukroun/future-butcher-web" target="_blank">Web client repo (old)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                </article>
-            </div>
-        </section>
-
-        <div id="manifesto">
-            <div class="outer-border">
-                <p>This static site is built entirely with HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto</a> on preserving web content for more details.</p>
-                <p>Built by Jon Choukroun</p>
-            </div>
-        </div>
-    </body>
+    <div id="manifesto">
+      <div class="outer-border">
+        <p>
+          This static site is built entirely with HTML and CSS, without any
+          Javascript. It's also built to last. Check out
+          <a href="https://jeffhuang.com/designed_to_last/" target="_blank"
+            >this manifesto</a
+          >
+          on preserving web content for more details.
+        </p>
+        <p>Built by Jon Choukroun</p>
+      </div>
+    </div>
+  </body>
 </html>
