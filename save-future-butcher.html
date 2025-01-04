@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Jon Choukroun | Future Butcher" />
+        <meta property="og:description" content="Project writeup for the Future Butcher turn-based strategy game." />
+        <meta property="og:url" content="https://jonchoukroun.com/future-butcher.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="assets/fb-landing.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Jon Choukroun | Future Butcher" />
+        <meta property="twitter:description" content="Project writeup for the Future Butcher turn-based strategy game." />
+        <meta property="twitter:image" content="assets/fb-landing.png" />
+        <link rel="icon" href="assets/digital-security.png" />
+        <link rel="stylesheet" href="styles.css">
+        <title>Jon Choukroun | Future Butcher</title>
+    </head>
+    <body>
+        <div id="navbar">
+            <span><a href="index.html" class="button">Home</a></span>
+            <span><a href="index.html#projects" class="button">Projects</a></span>
+            <span><a href="index.html#bio" class="button">Bio</a></span>
+            <span><a href="https://github.com/jonchoukroun" target="_blank" class="button">GitHub</a></span>
+        </div>
+
+        <section id="future-butcher" class="writeup">
+            <div class="title-container">
+                <h1>Future Butcher</h1>
+            </div>
+
+            <div class="links-container">
+                <article class="card">
+                    <div class="outer-border">
+                        <div class="inner-border">
+                            <header>
+                                <div class="card-title">
+                                    <h3>Links</h3>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <ul class="links">
+                                    <li>
+                                        <a href="https://futurebutcher.com" target="_blank">Play the game</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jonchoukroun/future-butcher-engine" target="_blank">Game engine repo</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jonchoukroun/future-butcher-api" target="_blank">Server application repo</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jonchoukroun/future-butcher-web2" target="_blank">Web client repo (React)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jonchoukroun/future-butcher-web" target="_blank">Web client repo (old)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                </article>
+            </div>
+        </section>
+
+        <figure>
+            <img src="assets/fb-landing.png" alt="Future Butcher landing page">
+            <figcaption>Landing page</figcaption>
+        </figure>
+
+            <figure>
+                <img src="assets/fb-market.png" alt="Future Butcher market">
+                <figcaption>In-game screen, with stats on the left and the market on the right.</figcaption>
+            </figure>
+
+            <h2 class="heading">Specs</h2>
+            <ul class="specs">
+                <li><strong>Platform:</strong> Web</li>
+                <li><strong>Status:</strong> In production, feature-complete</li>
+                <li>
+                    <strong>Technology:</strong>
+                    <ul class="sub-list">
+                        <li>Game engine: Elixir</li>
+                        <li>API/Engine superviser: Phoenix Framework/Elixir</li>
+                        <li>Web client: React/Typescript</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 class="heading">Background</h2>
+
+            <p>Do you remember Drug Wars? I spent hours during high school math class playing that game on my TI-83 calculator. I got hooked on the game's simplicity, fascinated by how the combination of RNG and an edgy subject combined to make it infinitely replayable.</p>
+            <p>So in 2017 when I needed a project to learn the <a href="https://elixir-lang.org/" target="_blank">Elixir programming language</a>, Drug Wars came to mind. I had started reading the excellent Pragmatic Programmers book <a href="https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/" target="_blank">Functional Web Development with Elixir, OTP, and Phoenix</a>, which provides an in-depth tutorial building a Battleship-type game. But instead of following the material to the letter, I decided to build my own game with the book as a guide. I didn't want to rip off John E. Dell's original either, so I spent some time brainstorming a new world.</p>
+
+            <h2 class="heading">Design</h2>
+            <p>Right off the bat, I wanted to give Future Butcher a cyberpunk feel. The original title was Slinger, and the player could buy and sell brain implants with different gameplay effects (free turns, greater strength, etc). But the concept was too unfamiliar for players who hadn't read any William Gibson and too derivative for those who had. Instead I took the game in a new direction - cannibalism as a hot trend.</p>
+            <p>I kept the cyberpunk feel, with a UI intended to remind the player of an old terminal. Some of the events and encounters reinforce that cyberpunk feeling, with mentions of predatory corporations, weak (and possibly failed) governments, and near anarchy.</p>
+
+            <h2 class="heading">Architecture</h2>
+            <p>Following the <em>PragProg</em> book's approach, I designed a stateful game engine in Elixir. It handles turns, player health, transactions, and game rules. Here's an example of how Elixir's pattern matching prevents a transaction if the game is in the wrong state:</p>
+
+            <pre>
+                <code class="language-pascal">
+                    <span class="code-comment"># The :buy_cut transaction also requires state to be :in_game</span>
+                    def check(%Rules{state: :in_game} = rules, :buy_cut) do
+                    {:ok, %Rules{rules | state: :in_game}}
+                    end
+
+                    <span class="code-comment"># Same for the :sell_cut transaction</span>
+                    def check(%Rules{state: :in_game} = rules, :sell_cut) do
+                    {:ok, %Rules{rules | state: :in_game}}
+                    end
+
+                    <span class="code-comment"># The catch-all match indicates a rules violation</span>
+                    def check(_state, _action), do: {:error, :violates_current_rules}
+                </code>
+            </pre>
+
+            <p>This engine is a dependency of the server application, which was built with Elixir's Phoenix. This API uses Phoenix Channels (a convenient Websockets wrapper) to communicate with the client. Once the socket is open, the API processes client requests and calls game engine functions as appropriate. This means the client can't cheat by passing false data in its requests.</p>
+            <p>When the client sends a start game request, the API spins up and supervises an OTP process, using the <a href="">GenServer</a>. This is how the game manages state. Because the server application runs in an Erlang VM and the process is kept alive by the GenServer, a user can close their browser and later return to their game.</p>
+            <p>Authentication is non-existent, because I wanted to provide an arcade experience. There's no need for users to create an account, provide an email address, etc.</p>
+            <p>The original client was an Ember.js application, but in 2022 I rebuilt it entirely with React and Typescript. This web application is much snappier and less buggy. The design has also improved significantly.</p>
+
+            <h2 class="heading">Closing Thoughts</h2>
+            <p>Building this game was quite the learning experience. Not only did I become comfortable working with Elixir and the Phoenix framework, I also learned a lot about deployment and server management. One of the biggest headaches was setting up a reliable deployment pipeline for the API and game engine, that's both secure and manageable.</p>
+            <p>When I launched the original version with the Ember.js web client, I did a minimal amount of marketing to see if the game could build some momentum. I posted it on some relevant subreddits, Product Hunt, and a couple other places I could expect to get interest. For a while, I got a few hundred new users per day - which was mind-blowing for me. But soon only the most hardcore players kept coming back, mostly friends of mine. One player, Doh, continues to play and even has the high score.</p>
+            <p>I may choose to spend some time marketing the game again, this time more strategically. But since I have no interest in monetizing this game, it's not a top priority. Ultimately this was a fun and rewarding experience and I hope to find time to build another game in the future.</p>
+
+            <nav class="bottom-nav">
+                <a href="index.html" class="button">Home</a>
+            </nav>
+        </section>
+        <div id="manifesto">
+            <div class="outer-border">
+                <p>This static site is built entirely with HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto</a> on preserving web content for more details.</p>
+                <p>Built by Jon Choukroun</p>
+            </div>
+        </div>
+    </body>
+</html>

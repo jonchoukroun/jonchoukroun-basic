@@ -1,115 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Jon Choukroun | Portfolio" />
-    <meta property="og:description" content="Software engineer, musician, and more." />
+    <meta
+      property="og:description"
+      content="Software engineer, musician, and more."
+    />
     <meta property="og:url" content="https://jonchoukroun.com" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/jc-img.png" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Jon Choukroun | Portfolio" />
-    <meta property="twitter:description" content="Software engineer, musician, and more." />
+    <meta
+      property="twitter:description"
+      content="Software engineer, musician, and more."
+    />
     <meta property="twitter:image" content="assets/jc-img.png" />
     <link rel="icon" href="assets/digital-security.png" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Jon Choukroun | Home</title>
-</head>
-<body>
-    <section id="hero">
+  </head>
+  <body>
+    <div id="navbar">
+      <div class="menu" tabindex="1">
+        <i class="db2" tabindex="1"></i>
+        <a class="button menu-button">Links</a>
+        <div class="menu-content">
+          <div class="outer-border">
+            <a href="index.html" class="menu-item">Home</a>
+            <div class="divider"></div>
+            <a href="future-butcher.html" class="menu-item">Future Butcher</a>
+            <a href="chip-8r.html" class="menu-item">Chip-8r</a>
+            <a href="william-storck.html" class="menu-item">William Storck</a>
+            <div class="divider"></div>
+            <a
+              href="https://github.com/jonchoukroun"
+              class="menu-item"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hero">
+      <div class="outer-border">
         <h1>Jon Choukroun</h1>
-        <p>From chords to code: my software engineering journey</p>
-        <nav class="site-nav">
-            <a href="#projects" class="button">Projects</a>
-            <a href="#bio" class="button">About</a>
-            <a href="#contact" class="button">Contact</a>
-        </nav>
-    </section>
-
-    <section id="projects">
+        <p>Software Engineer | Apple iCloud Mail</p>
+        <a href="https://github.com/jonchoukroun" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div id="bio">
+      <div class="outer-border">
+        <div class="inner-border">
+          <span class="filename-container">
+            <h2 id="filename">JonChoukroun.com</h2>
+          </span>
+          <section>
+            <h3>About Me</h3>
+            <article>
+              <p>
+                I've been a software engineer with Apple for 4 years, working
+                mostly on the iCloud Mail web client. Before that, I worked for
+                a stock photography startup called Twenty20. Unfortunately, that
+                company was acquired and later shuttered.
+              </p>
+              <p>
+                Much earlier, I worked in the music industry as a sound
+                engineer. I recorded and mixed artists across genres, and did
+                some composing/scoring for commercials (and one
+                <a href="https://www.imdb.com/name/nm2814153/" target="_blank"
+                  >film</a
+                >).
+              </p>
+              <p>
+                EventuallyI went back to college, studying International
+                Relations at the University of Southern California, and
+                International Economic Policy from George Washington University.
+                These subjects aren't related to what I do now, but I still
+                consider them a valuable education and experience.
+              </p>
+              <p>
+                After a short time working in managment consulting (which I
+                strongly discourage), I taught myself to code. Starting with
+                basic web development, I learned quickly and accumulated quite a
+                few knowledge gaps. But my priority was getting just competent
+                enough to land a job, regardless of how much learning debt I
+                accrued. It paid off, as Twenty20 hired me after roughly 6
+                months. The engineering manager took a chance on easily the
+                greenest developer, which let me grow and learn from skilled and
+                experienced engineers.
+              </p>
+              <p>
+                I've always been a passionate learner, if not a great student.
+                The projects detailed on this site illustrate some of the
+                interests I've pursued.
+              </p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="projects">
+      <section>
         <h2 class="container-title">Projects</h2>
+        <p>A small selection of projects I've completed.</p>
+        <p>
+          These are highlighted because they reflect an interest I chose to
+          purse: a specific type of programming, a tech stack/language, or just
+          something cool I wanted to explore.
+        </p>
+      </section>
+      <section class="projects-nav-container">
         <nav>
-            <article class="card">
+          <article class="card">
+            <div class="outer-border">
+              <div class="inner-border">
                 <header>
+                  <div class="card-title">
                     <h3>Future Butcher</h3>
+                  </div>
                 </header>
-                <p>Game engine, API, and web client for a turn-based strategy game. Built with Elixir and React.</p>
+                <div class="content">
+                  <p>
+                    Game engine, API, and web client for a turn-based strategy
+                    game.
+                  </p>
+                  <p>Built with Elixir and React.</p>
+                </div>
                 <footer>
-                    <a class="card-button button" href="future-butcher.html">Explore</a>
+                  <a class="card-button button" href="future-butcher.html"
+                    >Explore</a
+                  >
                 </footer>
-            </article>
-            <article class="card">
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="outer-border">
+              <div class="inner-border">
                 <header>
+                  <div class="card-title">
                     <h3>Chip-8R</h3>
+                  </div>
                 </header>
-                <p>Emultaor for the ancient microprocessor interpreted language, written in Rust.</p>
+                <div class="content">
+                  <p>
+                    Emultaor for the ancient microprocessor interpreted language
+                  </p>
+                  <p>Written in Rust.</p>
+                </div>
                 <footer>
-                    <a class="card-button button" href="chip-8r.html">See More</a>
+                  <a class="card-button button" href="chip-8r.html">See More</a>
                 </footer>
-            </article>
-            <article class="card">
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="outer-border">
+              <div class="inner-border">
                 <header>
-                    <h3>SDSx</h3>
-                </header>
-                <p>Synthesized Drum Sequencer, written in C++ with PortAudio and wxWidgets.</p>
-                <footer>
-                    <a class="card-button button" href="sdsx.html">Learn More</a>
-                </footer>
-            </article>
-            <article class="card">
-                <header>
+                  <div class="card-title">
                     <h3>William Storck Portfolio</h3>
+                  </div>
                 </header>
-                <p>Portfolio website and admin portal for the contemporary artist William Storck. Built in Elixir/Phoenix.</p>
+                <div class="content">
+                  <p>
+                    Portfolio website and admin portal for the contemporary
+                    artist William Storck.
+                  </p>
+                  <p>Built in Elixir/Phoenix.</p>
+                </div>
                 <footer>
-                    <a class="card-button button" href="william-storck.html">Dive In</a>
+                  <a class="card-button button" href="william-storck.html"
+                    >Dive In</a
+                  >
                 </footer>
-            </article>
+              </div>
+            </div>
+          </article>
         </nav>
-
-        <footer>
-            <a href="#">Back to top</a>
-        </footer>
-    </section>
-
-    <section id="bio">
-        <h2 class="container-title">About Me</h2>
-        <article class="text-content">
-            <p>I was born in the land of sunshine and surf, Orange County, California. Started my career as a sound engineer, a composer, an arranger in the mad world of music production and television advertising. But I became bored with the same old beat and sought a new challenge.</p>
-            <p>Traded in the mixing board and earned a bachelor's degree in International Relations from the University of Southern California, then a master's in International Economic Policy from George Washington University. This led to a gig in management consulting for the financial services industry.</p>
-            <p>But it was programming that really got me excited. I taught myself to code, starting with Ruby and Javascript. Self-taught skills landed me a software engineer gig at Twenty20, a startup platform for stock photography. I kept learning - at work and on side projects - adding Elixir, Typescript, C and C++ to my repertoire.</p>
-            <p>These days, I'm putting my coding skills to use on Apple's iCloud Mail team, making sure folks' emails are safe and sound. You see, I've always had a nose for cybersecurity and user privacy, and I believe in using technology to protect folks from the bad guys. I may not be a private eye, but I know how to dig deep and solve a problem.</p>
-            <p>As for my interests outside of work, I'm drawn to the challenge of game console emulation and the intricacies of audio application programming. It's a nice change of pace from my day job, and it keeps my mind sharp.</p>
-            <p>When I'm not knee-deep in code, you'll find me spending time with my wife and daughter, playing a game of chess, watching baseball, or reading a novel.</p>
-
-            <small>The above bio was generated by ChatGPT. I provided some facts and asked for the style of Raymond Chandler. I've made some editorial changes, but mostly kept what it spit out.</small>
-        </article>
-
-        <footer>
-            <a href="#">Back to top</a>
-        </footer>
-    </section>
-
-    <section id="contact">
-        <h2 class="container-title">Contact</h2>
-
-        <article class="text-content">
-            <p>I'm not on social media, but you can <a href="https://github.com/jonchoukroun" target="_blank">checkout my GitHub</a>.</p>
-        </article>
-
-        <footer>
-            <a href="#">Back to top</a>
-        </footer>
-    </section>
-
-    <section id="manifesto">
-        <article class="text-content">
-            <p>This static site is built entirely with HTML and CSS, without any Javascript. It's also built to last. Check out <a href="https://jeffhuang.com/designed_to_last/" target="_blank">this manifesto</a> on preserving web content for more details.</p>
-        
-            <p>Built by Jon Choukroun</p>
-        </article>
-    </section>
-</body>
+      </section>
+      <footer>
+        <a href="#">Back to top</a>
+      </footer>
+    </div>
+    <div id="manifesto">
+      <div class="outer-border">
+        <p>
+          This static site is built entirely with HTML and CSS, without any
+          Javascript. It's also built to last. Check out
+          <a href="https://jeffhuang.com/designed_to_last/" target="_blank"
+            >this manifesto</a
+          >
+          on preserving web content for more details.
+        </p>
+        <p>Built by Jon Choukroun</p>
+      </div>
+    </div>
+  </body>
 </html>
